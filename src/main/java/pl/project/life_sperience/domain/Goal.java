@@ -1,10 +1,8 @@
-package pl.project.life_sperience.goal;
+package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.project.life_sperience.category.Category;
-import pl.project.life_sperience.exercise.Repetition;
 
 
 import javax.persistence.*;

@@ -1,11 +1,11 @@
-package pl.project.life_sperience.Notification;
+package pl.project.life_sperience.notification;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import pl.project.life_sperience.user.User;
+import pl.project.life_sperience.domain.User;
 
 @Service
 public class NotificationService {

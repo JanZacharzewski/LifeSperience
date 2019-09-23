@@ -1,4 +1,4 @@
-package pl.project.life_sperience.exercise;
+package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,14 +10,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "duration")
-public class Duration {
+@Table(name = "repetitions")
+public class Repetition {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private long minutes;
-    private long hours;
-    private long days;
-    private long weeks;
-    private long months;
+    private String choice;
 }

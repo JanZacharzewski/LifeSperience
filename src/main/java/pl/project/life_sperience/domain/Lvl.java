@@ -1,5 +1,4 @@
-package pl.project.life_sperience.exercise;
-
+package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +10,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "parameters")
-public class Difficulty {
+@Table(name = "lvl")
+public class Lvl {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String difficulty;
-    
+    private long XP_owned;
+    private long XP_needed;
 }

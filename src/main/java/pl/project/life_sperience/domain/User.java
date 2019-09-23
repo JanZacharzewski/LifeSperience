@@ -1,14 +1,13 @@
-package pl.project.life_sperience.user;
+package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.project.life_sperience.goal.Goal;
-import pl.project.life_sperience.lvl.Lvl;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -24,6 +23,7 @@ public class User {
     private String login;
     @NotBlank
     private String password;
+    private boolean enabled=true;
     @NotBlank
     @Column(unique = true)
     private String email;
@@ -31,4 +31,6 @@ public class User {
     private Lvl lvl;
     @OneToMany
     private List <Goal> goals;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 }

@@ -2,16 +2,13 @@ package pl.project.life_sperience.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.project.life_sperience.Notification.NotificationService;
-import pl.project.life_sperience.user.User;
-
-import java.util.List;
+import pl.project.life_sperience.notification.NotificationService;
+import pl.project.life_sperience.domain.User;
 
 
 @Controller
@@ -52,6 +49,12 @@ public class HomeControllerer {
     @ResponseBody
     public String about(){
         return "hha";
+    }
+
+    @GetMapping("/admin/dupa")
+    @ResponseBody
+    public String adminDupa(){
+        return "dupcia.jpg";
     }
 
     @GetMapping("/")

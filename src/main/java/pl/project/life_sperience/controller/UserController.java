@@ -1,13 +1,15 @@
-package pl.project.life_sperience.user;
+package pl.project.life_sperience.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.project.life_sperience.Notification.NotificationService;
-import pl.project.life_sperience.lvl.Lvl;
-import pl.project.life_sperience.lvl.LvlService;
+import pl.project.life_sperience.domain.User;
+import pl.project.life_sperience.notification.NotificationService;
+import pl.project.life_sperience.domain.Lvl;
+import pl.project.life_sperience.service.LvlService;
+import pl.project.life_sperience.service.UserService;
 
 @Controller
 @RequestMapping("/user")

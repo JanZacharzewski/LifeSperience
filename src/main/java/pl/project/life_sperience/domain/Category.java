@@ -1,10 +1,10 @@
-package pl.project.life_sperience.category;
+package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
-import pl.project.life_sperience.exercise.Exercise;
+import pl.project.life_sperience.domain.Exercise;
 
 
 import javax.persistence.*;

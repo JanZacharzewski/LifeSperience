@@ -1,7 +1,8 @@
-package pl.project.life_sperience.category;
+package pl.project.life_sperience.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.life_sperience.domain.Category;
+import pl.project.life_sperience.repository.CategoryRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
