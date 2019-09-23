@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.Nullable;
-import pl.project.life_sperience.domain.Exercise;
+
 
 
 import javax.persistence.*;

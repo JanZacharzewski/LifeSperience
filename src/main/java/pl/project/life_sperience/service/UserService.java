@@ -7,18 +7,10 @@ import pl.project.life_sperience.repository.UserRepository;
 import javax.transaction.Transactional;
 
 
-@Service
-@Transactional
-public class UserService {
 
-    private final UserRepository userRepository;
+public interface UserService {
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    User findByUserName(String name);
 
-
-    public void saveUser(User user){
-        userRepository.save(user);
-    }
+    void saveUser(User user);
 }

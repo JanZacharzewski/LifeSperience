@@ -20,7 +20,7 @@ public class User {
     private Long id;
     @NotBlank
     @Column(unique = true)
-    private String login;
+    private String userName;
     @NotBlank
     private String password;
     private boolean enabled=true;

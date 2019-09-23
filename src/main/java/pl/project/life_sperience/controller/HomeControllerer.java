@@ -3,12 +3,14 @@ package pl.project.life_sperience.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.project.life_sperience.notification.NotificationService;
 import pl.project.life_sperience.domain.User;
+import pl.project.life_sperience.service.CurrentUser;
 
 
 @Controller
@@ -47,14 +49,14 @@ public class HomeControllerer {
 
     @GetMapping("/about")
     @ResponseBody
-    public String about(){
+    public String about(@AuthenticationPrincipal CurrentUser customUser){
         return "hha";
     }
 
     @GetMapping("/admin/dupa")
     @ResponseBody
-    public String adminDupa(){
-        return "dupcia.jpg";
+    public String adminDupa(@AuthenticationPrincipal CurrentUser customUser){
+        return "admin dupa";
     }
 
     @GetMapping("/")

@@ -13,7 +13,7 @@
 </head>
 <body>
     <c:form method="post" modelAttribute="user">
-        Login: <c:input path="login"/>
+        Login: <c:input path="userName"/>
         Hasło: <c:input path="password" type="password"/>
         Email: <c:input path="email" type="email"/>
         <input type="submit">
