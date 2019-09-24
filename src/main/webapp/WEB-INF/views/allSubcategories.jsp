@@ -21,24 +21,24 @@
 <%@include file="fragments/header.jspf" %>
 
 
-<div class="container mt-5">
+<div class="container mx-auto">
     <div class="col-md-8 col-md-offset-5">
         <div class="table table-dark">
             <div class="row mx-auto">
-                <div class="col align-middle" style="text-align: center">Id</div>
-                <div class="col align-middle" style="text-align: center">Nazwa</div>
-                <div class="col align-middle" style="text-align: center">Kategoria</div>
+                <div class="col align-middle" style="color:darkorange">Id</div>
+                <div class="col align-middle" style="color:darkorange">Nazwa</div>
             </div>
 
             <c:forEach items="${subCategories}" var="category" varStatus="id">
                 <div class="row mx-auto">
-                    <div class="col align-middle" style="text-align: center">${id.count}</div>
+                    <div class="col my-xl-auto">${id.count}</div>
                     <div class="col align-middle" style="text-align: center">${category.name}</div>
-                    <div class="col align-middle" style="text-align: center">"${CategoryName}"</div>
                 </div>
             </c:forEach>
         </div>
     </div>
+
+
     <div>
         <div class="card-body">
             <a href="/admin/category/addSubCategory" class="btn btn-primary">Add new subcategory!</a>

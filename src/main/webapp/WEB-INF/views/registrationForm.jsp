@@ -15,9 +15,9 @@
 <c:form method="post" modelAttribute="user">
     <div>
         <label>
-            Login: <c:input path="userName"/>
+            Login: <c:input path="username"/>
         </label>
-        <c:errors path="userName"/>
+        <c:errors path="username"/>
     </div>
     <div>
         <label>

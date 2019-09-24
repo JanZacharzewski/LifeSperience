@@ -22,7 +22,7 @@ public class UserController {
 
     private final
     LvlService lvlService;
-    private  final
+    private final
     UserService userService;
     private final
     NotificationService notificationService;
@@ -36,14 +36,14 @@ public class UserController {
     }
 
     @GetMapping("/registration")
-    public String saveUser(Model model){
+    public String saveUser(Model model) {
         model.addAttribute("user", new User());
         return "registrationForm";
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute @Valid User user, BindingResult result){
-        if(result.hasErrors()) {
+    public String saveUser(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
             return "registrationForm";
         }
         user.setLvl(lvlService.getLvl(1));
@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(){
+    public String loginUser() {
         return "loginForm";
     }
 

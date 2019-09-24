@@ -13,7 +13,10 @@
 </head>
 <body>
 <%@include file="fragments/header.jspf" %>
-<h1>HOME</h1>
+
+<sec:authorize access="hasRole('USER')">
+    <%@include file="fragments/userDash.jspf"%>
+</sec:authorize>
 
 
 </body>

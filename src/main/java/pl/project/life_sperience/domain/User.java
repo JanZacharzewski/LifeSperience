@@ -13,14 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames = {"userName", "email"})}, name = "users")
+@Table(uniqueConstraints={@UniqueConstraint(columnNames = {"username", "email"})}, name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     @Column(unique = true)
-    private String userName;
+    private String username;
     @NotBlank
     private String password;
     private boolean enabled=true;

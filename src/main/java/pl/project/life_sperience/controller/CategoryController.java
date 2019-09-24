@@ -86,8 +86,6 @@ public class CategoryController {
     @GetMapping("/allSubcategories")
     public String allSubcategories(Model model){
         List<Category> subCategories = categoryService.findAllSubCategories();
-        Category category = categoryService.findCategory(categoryService.findParentId());
-        model.addAttribute("CategoryName", category.getName());
         model.addAttribute("subCategories", subCategories);
         return "allSubcategories";
     }
