@@ -44,7 +44,7 @@ public class CategoryController {
         }
         category.setParent_id(0);
         categoryService.saveCategory(category);
-        return "redirect:/";
+        return "redirect:/admin/category/allCategories";
     }
     @GetMapping("/addSubCategory")
     public String addSubCategory(Model model){
@@ -67,9 +67,33 @@ public class CategoryController {
         categoryService.saveCategory(category);
         return "redirect:/";
     }
+
     @ModelAttribute("categories")
-    public List<Category> Categories() {
+    public List<Category> categories() {
         return categoryService.findAllCategories();
     }
+
+    @GetMapping("/allCategories")
+    public String allCategories (Model model){
+        List<Category> categories = categoryService.findAllCategories();
+        model.addAttribute("categories", categories);
+        return "allCategories";
+    }
+
+    @ModelAttribute("subcategories")
+    public List<Category> subcategories(){return categoryService.findAllSubCategories();}
+
+    @GetMapping("/allSubcategories")
+    public String allSubcategories(Model model){
+        List<Category> subCategories = categoryService.findAllSubCategories();
+        Category category = categoryService.findCategory(categoryService.findParentId());
+        model.addAttribute("CategoryName", category.getName());
+        model.addAttribute("subCategories", subCategories);
+        return "allSubcategories";
+    }
+
+
+
+
 
 }

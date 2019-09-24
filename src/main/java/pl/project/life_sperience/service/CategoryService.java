@@ -15,4 +15,8 @@ public interface CategoryService {
     boolean isCategoryNameUnique(String name);
 
     List <Category> findAllCategories();
+    List<Category> findAllSubCategories();
+    Category findCategory(int category_id);
+    int findParentId();
+    Category findById(int id);
 }

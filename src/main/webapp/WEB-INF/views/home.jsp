@@ -12,16 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-<sec:authorize access="hasAnyRole('ADMIN', 'USER')">
-    <%@include file="fragments/header.jspf" %>
-</sec:authorize>
+<%@include file="fragments/header.jspf" %>
 <h1>HOME</h1>
-<sec:authorize access="isAuthenticated()">
-    <h1>HOME2</h1>
-    <form method="post" action="/logout">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="submit" class="btn btn-primary" value="Logout"/>
-    </form>
-</sec:authorize>
+
+
 </body>
 </html>
