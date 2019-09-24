@@ -13,6 +13,7 @@ import pl.project.life_sperience.domain.Lvl;
 import pl.project.life_sperience.service.LvlService;
 import pl.project.life_sperience.service.UserService;
 
+import javax.validation.Valid;
 
 
 @Controller
@@ -41,21 +42,26 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String saveUser(@ModelAttribute User user, BindingResult result){
+    public String saveUser(@ModelAttribute @Valid User user, BindingResult result){
         if(result.hasErrors()) {
             return "registrationForm";
         }
         user.setLvl(lvlService.getLvl(1));
         userService.saveUser(user);
         notificationService.sendNotification(user);
-        return "redirect:..user/login";
+        return "redirect:/user/login";
     }
 
     @GetMapping("/login")
-    public String loginUser() {
+    public String loginUser(Model model) {
+//        model.addAttribute("user", )
         return "loginForm";
     }
 
+    @PostMapping("/login")
+    public String loginUser(){
+        return "loginForm";
+    }
 
     @GetMapping("/userLvl")
     @ResponseBody

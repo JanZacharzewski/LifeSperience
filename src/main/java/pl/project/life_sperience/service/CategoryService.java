@@ -2,38 +2,17 @@ package pl.project.life_sperience.service;
 
 import org.springframework.stereotype.Service;
 import pl.project.life_sperience.domain.Category;
-import pl.project.life_sperience.repository.CategoryRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 @Transactional
-public class CategoryService {
+public interface CategoryService {
 
-    private final CategoryRepository categoryRepository;
+    void saveCategory(Category category);
 
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+    boolean isCategoryNameUnique(String name);
 
-    public void addCategory(Category category){
-       categoryRepository.save(category);
-    }
-
-    public void updateCategory(Category category) {
-        categoryRepository.save(category);
-    }
-
-    public void deleteCategory(Long id) {
-        categoryRepository.deleteById(id);
-    }
-
-    public List getAllCategories() {
-        return categoryRepository.findAllCategories();
-    }
-
-    public List getAllSubCategoriesByParent(int parentId){
-        return categoryRepository.FindAllCategoryByParentId(parentId);
-    }
+    List <Category> findAllCategories();
 }

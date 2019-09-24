@@ -12,11 +12,26 @@
     <title>Title</title>
 </head>
 <body>
-    <c:form method="post" modelAttribute="user">
-        Login: <c:input path="userName"/>
-        Hasło: <c:input path="password" type="password"/>
-        Email: <c:input path="email" type="email"/>
-        <input type="submit">
-    </c:form>
+<c:form method="post" modelAttribute="user">
+    <div>
+        <label>
+            Login: <c:input path="userName"/>
+        </label>
+        <c:errors path="userName"/>
+    </div>
+    <div>
+        <label>
+            Hasło: <c:input path="password" type="password"/>
+        </label>
+        <c:errors path="password"/>
+    </div>
+    <div>
+        <label>
+            Email: <c:input path="email" type="email"/>
+        </label>
+        <c:errors path="email"/>
+    </div>
+    <input type="submit">
+</c:form>
 </body>
 </html>

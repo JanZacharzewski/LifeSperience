@@ -1,0 +1,9 @@
+img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+}
+
+body {
+    background-color: darkorange;
+}

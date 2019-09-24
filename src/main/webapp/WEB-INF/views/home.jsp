@@ -12,6 +12,9 @@
     <title>Title</title>
 </head>
 <body>
+<sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+    <%@include file="fragments/header.jspf" %>
+</sec:authorize>
 <h1>HOME</h1>
 <sec:authorize access="isAuthenticated()">
     <h1>HOME2</h1>
