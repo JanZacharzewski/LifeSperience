@@ -48,7 +48,7 @@ public class CategoryController {
     }
     @GetMapping("/addSubCategory")
     public String addSubCategory(Model model){
-        model.addAttribute("model", new Category());
+        model.addAttribute("subcategory", new Category());
         return "subCategoryForm";
     }
 
@@ -63,12 +63,12 @@ public class CategoryController {
             model.addAttribute("error", ssoError);
             return "subCategoryForm";
         }
-        category.setParent_id(0);
+//        category.setParent_id(0);
         categoryService.saveCategory(category);
         return "redirect:/";
     }
     @ModelAttribute("categories")
-    public List<Category> categories() {
+    public List<Category> Categories() {
         return categoryService.findAllCategories();
     }
 
