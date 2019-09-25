@@ -17,6 +17,8 @@ public class Exercise {
     private int id;
     private String name;
     private long EXP_to_gain;
-    @OneToOne
+    @ManyToOne
     private Difficulty difficulty;
+    @ManyToOne
+    private Category category;
 }

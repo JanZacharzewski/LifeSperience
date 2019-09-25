@@ -19,11 +19,8 @@ public class Goal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String skills;
     @OneToOne
     private Category category;
-    @OneToOne
-    private Repetition repetition;
     private Date deadline;
     private long XP_toGet;
 }

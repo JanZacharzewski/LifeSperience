@@ -41,7 +41,7 @@
     </div>
     <div>
         <div class="card-body">
-            <a href="/admin/category/addSubCategory" class="btn btn-primary">Add new subcategory!</a>
+            <a href="/admin/subCategory/add" class="btn btn-primary">Add new subcategory!</a>
         </div>
     </div>
 </div>

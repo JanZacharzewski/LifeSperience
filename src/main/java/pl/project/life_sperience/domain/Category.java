@@ -26,6 +26,6 @@ public class Category {
     private String name;
     @Nullable
     private int parent_id;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.ALL)
     List<Exercise> exercises;
 }

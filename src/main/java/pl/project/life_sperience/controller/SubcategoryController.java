@@ -1,5 +1,6 @@
 package pl.project.life_sperience.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,37 +15,38 @@ import pl.project.life_sperience.service.CategoryService;
 import javax.validation.Valid;
 import java.util.List;
 
-
-@RequestMapping("/admin/category")
 @Controller
-public class CategoryController {
+@RequestMapping("admin/subCategory")
+public class SubcategoryController {
 
     private final
     CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService) {
+    @Autowired
+    public SubcategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
     @GetMapping("/add")
-    public String saveCategory(Model model){
-        model.addAttribute("category", new Category());
-        return "categoryForm";
+    public String addSubCategory(Model model) {
+        model.addAttribute("subcategory", new Category());
+        return "subCategoryForm";
     }
+
     @PostMapping("/add")
-    public String saveCategory(@ModelAttribute @Valid Category category, BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String addSubCategory(@ModelAttribute @Valid Category category, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             return "categoryForm";
         }
         if (!categoryService.isCategoryNameUnique(category.getName())) {
-            FieldError ssoError = new FieldError("category", "categoryId", "Podana kategoria już istnieje");
+            FieldError ssoError = new FieldError("category", "categoryId", "Podana podkategoria już istnieje");
             result.addError(ssoError);
             model.addAttribute("error", ssoError);
-            return "categoryForm";
+            return "subCategoryForm";
         }
-        category.setParent_id(0);
+
         categoryService.saveCategory(category);
-        return "redirect:allCategories";
+        return "redirect:all";
     }
 
 
@@ -53,26 +55,15 @@ public class CategoryController {
         return categoryService.findAllCategories();
     }
 
-    @GetMapping("/allCategories")
-    public String allCategories (Model model){
-        List<Category> categories = categoryService.findAllCategories();
-        model.addAttribute("categories", categories);
-        return "allCategories";
+    @ModelAttribute("subcategories")
+    public List<Category> subcategories() {
+        return categoryService.findAllSubCategories();
     }
 
-    @ModelAttribute("subcategories")
-    public List<Category> subcategories(){return categoryService.findAllSubCategories();}
-
-    @GetMapping("/allSubcategories")
-    public String allSubcategories(Model model){
+    @GetMapping("/all")
+    public String allSubcategories(Model model) {
         List<Category> subCategories = categoryService.findAllSubCategories();
         model.addAttribute("subCategories", subCategories);
         return "allSubcategories";
     }
-
-
-
-
-
-
 }
