@@ -1,22 +1,53 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: juanzachariasz
-  Date: 23.09.2019
-  Time: 17:25
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <link href="<c:url value="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>" rel="stylesheet"
+          id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="<c:url value="/resources/css/loginForm.css"/>" rel="stylesheet">
+    <!------ Include the above in your HEAD tag ---------->
+
 </head>
-<body>
-<form method="post">
-    <div><label> UserName: <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+<body id="LoginForm">
+<div class="container">
+    <div class="login-form">
+        <div class="main-div">
+            <div class="panel">
+                <h2>User Login</h2>
+                <p>Wpisz swoją nazwę użytkownika i hasło</p>
+            </div>
+            <form id="Login" method="post">
+
+                <div class="form-group">
+
+
+                    <label for="inputEmail"></label>
+                    <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Username">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="inputPassword"></label>
+                    <input type="password" class="form-control" id="inputPassword" name="password"
+                           placeholder="Password">
+
+                </div>
+                <div class="forgot">
+                    <a href="reset.html">Zapomniałeś hasła?</a>
+                </div>
+                <div><input type="submit" class="btn btn-primary" value="Login"></div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
 </body>
 </html>

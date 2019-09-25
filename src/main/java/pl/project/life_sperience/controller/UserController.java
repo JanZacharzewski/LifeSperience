@@ -64,7 +64,7 @@ public class UserController {
         return "loginForm";
     }
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login", produces = "text/html; charset=utf-8")
     public String loginUser() {
         return "loginForm";
     }
