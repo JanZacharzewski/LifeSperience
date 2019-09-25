@@ -17,4 +17,5 @@ public class Lvl {
     private int id;
     private long XP_owned;
     private long XP_needed;
+    private int lvl_value;
 }

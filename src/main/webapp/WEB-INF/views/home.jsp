@@ -15,7 +15,7 @@
 <%@include file="fragments/header.jspf" %>
 
 <sec:authorize access="hasRole('USER')">
-    <%@include file="fragments/userDash.jspf"%>
+    <%@include file="userDash.jsp"%>
 </sec:authorize>
 
 

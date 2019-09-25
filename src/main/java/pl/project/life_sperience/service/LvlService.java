@@ -11,15 +11,9 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class LvlService {
+public interface LvlService {
 
-    private final LvlRepository lvlRepository;
+    void saveLvl(Lvl lvl);
 
-    public LvlService(LvlRepository lvlRepository) {
-        this.lvlRepository = lvlRepository;
-    }
 
-    public Lvl getLvl(Integer id) {
-        return lvlRepository.findById(id).orElse(null);
-    }
 }

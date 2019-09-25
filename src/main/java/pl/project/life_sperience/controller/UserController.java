@@ -3,6 +3,7 @@ package pl.project.life_sperience.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.project.life_sperience.domain.User;
 import pl.project.life_sperience.notification.NotificationService;
 import pl.project.life_sperience.domain.Lvl;
+import pl.project.life_sperience.service.CurrentUser;
 import pl.project.life_sperience.service.LvlService;
 import pl.project.life_sperience.service.UserService;
 
@@ -46,13 +48,17 @@ public class UserController {
         if (result.hasErrors()) {
             return "registrationForm";
         }
-        user.setLvl(lvlService.getLvl(1));
+        Lvl lvl = new Lvl();
+        lvl.setLvl_value(1);
+        lvl.setXP_needed(1000);
+        lvlService.saveLvl(lvl);
+        user.setLvl(lvl);
         userService.saveUser(user);
         notificationService.sendNotification(user);
         return "redirect:/user/login";
     }
 
-    @GetMapping("/login")
+    @GetMapping(value = "/login", produces = "text/html; charset = utf-8")
     public String loginUser(Model model) {
 //        model.addAttribute("user", )
         return "loginForm";
@@ -62,15 +68,5 @@ public class UserController {
     public String loginUser() {
         return "loginForm";
     }
-
-    @GetMapping("/userLvl")
-    @ResponseBody
-    public String getUserLvl() {
-        User user = new User();
-        Lvl lvl = lvlService.getLvl(2);
-        user.setLvl(lvl);
-        return user.getLvl().toString();
-    }
-
 
 }
