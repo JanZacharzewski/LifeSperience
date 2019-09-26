@@ -1,5 +1,5 @@
 body#LoginForm {
-background-color: ivory;
+background-color: #05030C;
 }
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
@@ -52,3 +52,9 @@ background-color: ivory;
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.nav-link, .btn, .btn-primary {
+    color: #FFAAAA;
+    background-color: #261758;
+    border-color: black; /set the color you want here/
+}

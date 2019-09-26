@@ -3,6 +3,7 @@ package pl.project.life_sperience.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.project.life_sperience.domain.Lvl;
+import pl.project.life_sperience.domain.User;
 import pl.project.life_sperience.repository.LvlRepository;
 import pl.project.life_sperience.service.LvlService;
 
@@ -22,7 +23,9 @@ public class LvlServiceImpl implements LvlService {
     }
 
     @Override
-    public void saveLvl(Lvl lvl) {
-        lvlRepository.save(lvl);
+    public Lvl saveLvl(Lvl lvl) {
+        return lvlRepository.save(lvl);
     }
+
+
 }

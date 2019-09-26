@@ -5,10 +5,7 @@ img {
 }
 
 body {
-    background-color: ivory;
-}
-.btn-primary {
-    color: darkorange;
+    background-color: #05030C;
 }
 
 table {
@@ -25,4 +22,9 @@ td, th {
 
 tr:nth-child {
     background-color: #dddddd;
+}
+.nav-link, .btn, .btn-primary {
+    color: #FFAAAA;
+    background-color: #261758;
+    border-color: black; /set the color you want here/
 }

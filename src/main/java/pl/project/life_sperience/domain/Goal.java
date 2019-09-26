@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 @Data
@@ -18,7 +19,7 @@ import java.util.Date;
 public class Goal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     @OneToOne
     private Category category;
@@ -27,4 +28,7 @@ public class Goal {
     @ManyToOne
     private User user;
     private long xp_to_get;
+    @OneToMany
+    private Set<Exercise> exercises;
+    private boolean close = false;
 }

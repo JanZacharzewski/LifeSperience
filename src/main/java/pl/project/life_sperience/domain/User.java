@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -33,4 +34,12 @@ public class User {
     private List <Goal> goals;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
+    @Transient
+    private List<Goal> activeGoals;
+    public List<Goal> getActiveGoals(){
+        if(goals!=null){
+            return goals.stream().filter(item-> !item.isClose()).collect(Collectors.toList());
+        }
+        return null;
+    }
 }

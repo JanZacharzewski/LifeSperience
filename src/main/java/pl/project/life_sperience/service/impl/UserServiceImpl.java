@@ -3,6 +3,7 @@ package pl.project.life_sperience.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.project.life_sperience.domain.Lvl;
 import pl.project.life_sperience.domain.Role;
 import pl.project.life_sperience.domain.User;
 import pl.project.life_sperience.repository.RoleRepository;
@@ -33,6 +34,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+    @Override
+    public Lvl getUserLvl(User user) {
+        User u =  userRepository.findById(user.getId()).orElse(null);
+        if(u!=null) {
+            return u.getLvl();
+        }
+        return null;
+    }
 
 
     @Override

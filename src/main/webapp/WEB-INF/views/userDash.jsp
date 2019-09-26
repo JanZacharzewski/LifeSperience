@@ -22,15 +22,15 @@
 </div>
 <div class="row  mx-auto">
     <div class="col">
-        <a class="nav-link btn btn-primary" href="user/goal/add">Dodaj nowy cel</a>
+        <a class="nav-link btn btn-success" href="user/goal/add">Dodaj nowy cel</a>
     </div>
 </div>
 
 
-<div class="container" style="background-color: ivory">
+<div class="container" style="background-color: #05030C">
     <div class="row">
         <div class="col">
-            <div class="card mt-4" style="background-color: darkorange">
+            <div class="card mt-4" style="background-color: lavenderblush">
                 <div class="card-body">
                     <div class="row">
                         <div class="col align-middle" style="text-align: center">
@@ -42,15 +42,26 @@
                         <tr>
                             <th>Nazwa celu</th>
                             <th>Kategoria celu</th>
+                            <th>Zadanie do wykonania</th>
                             <th>XP do zdobycia</th>
+                            <th>Deadline</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="myTable">
-                        <c:forEach items="${user.goals}" var="goal">
+                        <c:forEach items="${user.activeGoals}" var="goal">
                             <tr>
                                 <td>${goal.name}</td>
                                 <td>${goal.category.name}</td>
+                                <td><ul>
+                                    <c:forEach items="${goal.exercises}" var="ex">
+                                        <li>${ex.name}</li>
+                                    </c:forEach>
+                                    </ul>
+                                </td>
                                 <td>${goal.xp_to_get}</td>
+                                <td>${goal.deadline}</td>
+                                <td><a class="btn btn-warning" href="/user/goal/close/${goal.id}">Zakończ cel</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
