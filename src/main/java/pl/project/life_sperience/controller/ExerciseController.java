@@ -1,6 +1,5 @@
 package pl.project.life_sperience.controller;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,6 @@ import pl.project.life_sperience.service.DifficultyService;
 import pl.project.life_sperience.service.ExerciseService;
 
 import javax.validation.Valid;
-import java.lang.reflect.Parameter;
 import java.util.List;
 
 @Controller
@@ -53,13 +51,20 @@ public class ExerciseController {
         return "redirect:/";
     }
 
+    @GetMapping("/all")
+    public String allExercises(Model model){
+        List<Exercise> exercises = exerciseService.findAllExercises();
+        model.addAttribute("exercises", exercises);
+        return "allExercises";
+    }
+
+
     @ModelAttribute("difficulties")
     public List<Difficulty> difficulties() {
         return difficultyService.findAllDifficulties();
     }
 
     @ModelAttribute("subcategories")
-
     public List<Category> subcategories() {
         return categoryService.findAllSubCategories();
     }

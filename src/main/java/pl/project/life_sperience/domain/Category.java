@@ -3,7 +3,6 @@ package pl.project.life_sperience.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.lang.Nullable;
 
 
@@ -26,6 +25,6 @@ public class Category {
     private String name;
     @Nullable
     private int parent_id;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.ALL)
-    List<Exercise> exercises;
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category", cascade = CascadeType.M)
+//    List<Exercise> exercises;
 }

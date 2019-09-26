@@ -1,9 +1,6 @@
 package pl.project.life_sperience.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +16,6 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     private final
@@ -59,10 +55,18 @@ public class UserController {
     }
 
     @GetMapping(value = "/login", produces = "text/html; charset = utf-8")
-    public String loginUser(Model model) {
-//        model.addAttribute("user", )
+    public String loginUser(@RequestParam(value = "error", required = false) String error, Model model) {
+        String errorMessage = null;
+        if (error != null) {
+            errorMessage = "Błędne dane logowania";
+        }
+        model.addAttribute("errorMessage", errorMessage);
         return "loginForm";
     }
+
+
+
+
 
     @PostMapping(value = "/login", produces = "text/html; charset=utf-8")
     public String loginUser() {

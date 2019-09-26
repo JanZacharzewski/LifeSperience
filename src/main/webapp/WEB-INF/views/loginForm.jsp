@@ -13,6 +13,7 @@
 
 </head>
 <body id="LoginForm">
+<%@include file="fragments/header.jspf" %>
 <div class="container">
     <div class="login-form">
         <div class="main-div">
@@ -20,8 +21,12 @@
                 <h2>User Login</h2>
                 <p>Wpisz swoją nazwę użytkownika i hasło</p>
             </div>
-            <form id="Login" method="post">
 
+
+            <form id="Login" method="post">
+                <c:if test="${not empty errorMessage}">
+                    <div align="center" style="color: #ff511d; font-weight: bold;">${errorMessage}</div>
+                </c:if>
                 <div class="form-group">
 
 

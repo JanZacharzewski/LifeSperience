@@ -1,6 +1,5 @@
 package pl.project.life_sperience.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

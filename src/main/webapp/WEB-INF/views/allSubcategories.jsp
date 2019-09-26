@@ -21,27 +21,25 @@
 <%@include file="fragments/header.jspf" %>
 
 
-<div class="container mt-5 mx-auto">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="table table-dark">
-                <div class="row">
-                    <div class="col col-lg-1" style="color:darkorange">Id</div>
-                    <div class="col col-lg-5" style="text-align:center; color:darkorange">Nazwa</div>
-                </div>
-
-                <c:forEach items="${subCategories}" var="category" varStatus="id">
-                    <div class="row">
-                        <div class="col col-lg-1">${id.count}</div>
-                        <div class="col col-lg-5" style="text-align: center">${category.name}</div>
-                    </div>
-                </c:forEach>
+<div class="container mt-5">
+    <div class="col-md-8 col-md-offset-5">
+        <div class="table table-dark">
+            <div class="row mx-auto">
+                <div class="col align-middle" style="text-align: center">Id</div>
+                <div class="col align-middle" style="text-align: center">Name</div>
             </div>
+
+            <c:forEach items="${categories}" var="category" varStatus="id">
+                <div class="row mx-auto">
+                    <div class="col align-middle" style="text-align: center">${id.count}</div>
+                    <div class="col align-middle" style="text-align: center">${category.name}</div>
+                </div>
+            </c:forEach>
         </div>
     </div>
     <div>
         <div class="card-body">
-            <a href="/admin/subCategory/add" class="btn btn-primary">Add new subcategory!</a>
+            <a href="admin/subCategory/add" class="btn btn-primary">Add new category!</a>
         </div>
     </div>
 </div>

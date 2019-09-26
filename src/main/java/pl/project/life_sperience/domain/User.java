@@ -29,7 +29,7 @@ public class User {
     private String email;
     @OneToOne
     private Lvl lvl;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
     private List <Goal> goals;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;

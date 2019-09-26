@@ -2,7 +2,6 @@ package pl.project.life_sperience.service;
 
 import java.util.Collection;
 
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 public class CurrentUser extends User {

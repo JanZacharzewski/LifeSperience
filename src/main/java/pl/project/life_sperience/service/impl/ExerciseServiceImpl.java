@@ -7,6 +7,7 @@ import pl.project.life_sperience.repository.ExerciseRepository;
 import pl.project.life_sperience.service.ExerciseService;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -22,5 +23,15 @@ public class ExerciseServiceImpl implements ExerciseService {
     @Override
     public void saveExercise(Exercise exercise) {
         exerciseRepository.save(exercise);
+    }
+
+    @Override
+    public List<Exercise> findAllExercises() {
+        return exerciseRepository.findAll();
+    }
+
+    @Override
+    public Exercise getExerciseById(int id) {
+        return exerciseRepository.getExerciseById(id);
     }
 }

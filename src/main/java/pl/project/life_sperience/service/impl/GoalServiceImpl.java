@@ -1,6 +1,5 @@
 package pl.project.life_sperience.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.project.life_sperience.domain.Goal;
 import pl.project.life_sperience.repository.GoalRepository;
@@ -22,5 +21,15 @@ public class GoalServiceImpl implements GoalService {
     @Override
     public Goal saveGoal(Goal goal) {
         return goalRepository.save(goal);
+    }
+
+    @Override
+    public Goal deleteGoalById(Integer goalId) {
+        return goalRepository.deleteGoalById(goalId);
+    }
+
+    @Override
+    public Goal getById(int goalId) {
+        return goalRepository.getGoalById(goalId);
     }
 }

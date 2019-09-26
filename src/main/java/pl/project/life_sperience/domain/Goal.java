@@ -3,6 +3,7 @@ package pl.project.life_sperience.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
@@ -21,6 +22,9 @@ public class Goal {
     private String name;
     @OneToOne
     private Category category;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
-    private long XP_toGet;
+    @ManyToOne
+    private User user;
+    private long xp_to_get;
 }
