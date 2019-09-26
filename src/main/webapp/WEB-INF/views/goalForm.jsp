@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: juanzachariasz
@@ -9,6 +10,7 @@
 <html>
 <head>
     <title>Dodawanie Celu</title>
+    <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
 </head>
 <body>
 <%@include file="fragments/header.jspf" %>
@@ -26,14 +28,23 @@
     </div>
 
     <div>
-        <label> Wybierz kategorie swojego celu:
+        <label>Wybierz kategorie swojego celu:
             <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/>
+            <a class="nav-link btn btn-warning" href="#" style="width: fit-content;">Wybierz podkategorie</a>
         </label>
     </div>
 
     <div>
         <label> Wybierz podkategorie swojego celu:
             <form:select path="category.parent_id" items="${subcategories}" itemLabel="name" itemValue="id"/>
+            <a class="nav-link btn btn-warning" href="#" style="width: fit-content">Wybierz zadania</a>
+        </label>
+    </div>
+    <div>
+        <label> Wybierz zadania dla swojego celu:
+            <form:select path="category">
+                <form:options items="${goal.exercises}" itemValue="id" itemLabel="name"/>
+            </form:select>
         </label>
     </div>
     <input type="submit" value="Dodaj cel"/>

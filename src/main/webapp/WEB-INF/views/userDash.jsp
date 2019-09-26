@@ -12,9 +12,9 @@
     <div class="col-lg-5">
         <div class="media">
             <div class="media-body">
-                <h4 class="media-heading" style="color: forestgreen">${user.username}</h4>
-                <h5 style="color:forestgreen">Lvl: ${user.lvl.lvl_value}</h5>
-                <h5 style="color:forestgreen">XP: (${user.lvl.XP_owned}/${user.lvl.XP_needed})</h5>
+                <h4 class="media-heading" style="color: #F8D00C">${user.username}</h4>
+                <h5 style="color:#F8D00C">Lvl: ${user.lvl.lvl_value}</h5>
+                <h5 style="color:#F8D00C">XP: (${user.lvl.XP_owned}/${user.lvl.XP_needed})</h5>
                 <hr style="margin:8px auto">
             </div>
         </div>
@@ -22,7 +22,7 @@
 </div>
 <div class="row  mx-auto">
     <div class="col">
-        <a class="nav-link btn btn-success" href="user/goal/add">Dodaj nowy cel</a>
+        <a class="nav-link btn btn-warning" href="/user/goal/add">Dodaj nowy cel</a>
     </div>
 </div>
 
@@ -61,7 +61,7 @@
                                 </td>
                                 <td>${goal.xp_to_get}</td>
                                 <td>${goal.deadline}</td>
-                                <td><a class="btn btn-warning" href="/user/goal/close/${goal.id}">Zakończ cel</a></td>
+                                <td><a class="btn btn-warning" href="#" onclick="confirmClose(${goal.id}, '${goal.name}')">Zakończ cel</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>

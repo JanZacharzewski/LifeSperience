@@ -78,5 +78,4 @@ public class GoalController {
         return categoryService.findAllSubCategories();
     }
 
-
 }
