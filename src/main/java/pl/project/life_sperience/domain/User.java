@@ -42,4 +42,9 @@ public class User {
         }
         return null;
     }
+    @Transient
+    private List<Goal> closeGoals;
+    public List<Goal> getCloseGoals(){
+        return goals.stream().filter(Goal::isClose).collect(Collectors.toList());
+    }
 }

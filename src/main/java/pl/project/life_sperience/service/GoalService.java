@@ -16,4 +16,5 @@ public interface GoalService {
     Goal getById(int goalId);
     void delete(Goal goal);
     void close(User user, Goal goal);
+    List<Goal> getFinalizeGoal();
 }

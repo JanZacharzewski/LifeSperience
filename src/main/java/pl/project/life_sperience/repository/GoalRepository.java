@@ -16,5 +16,8 @@ public interface GoalRepository extends JpaRepository<Goal, Long> {
     @Query("select g from Goal g where g.id=?1")
     Goal getGoalById(Integer goalId);
 
+    @Query("select g from Goal g where g.close=false")
+    List<Goal> getFinalizeGoal();
+
     List<Goal> findAllByUser(User user);
 }

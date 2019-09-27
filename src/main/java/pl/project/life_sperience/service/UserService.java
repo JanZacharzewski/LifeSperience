@@ -16,6 +16,8 @@ public interface UserService {
     Lvl getUserLvl(User user);
 
 
+    User findByEmail(String email);
+
     void saveUser(User user);
 
 }

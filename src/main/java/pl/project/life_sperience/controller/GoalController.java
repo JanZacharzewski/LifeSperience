@@ -23,14 +23,16 @@ public class GoalController {
     private final CategoryService categoryService;
     private final ExerciseService exerciseService;
     private final LvlService levelService;
+    private final UserService userService;
 
 
     @Autowired
-    public GoalController(GoalService goalService, CategoryService categoryService, ExerciseService exerciseService, LvlService levelService) {
+    public GoalController(GoalService goalService, CategoryService categoryService, ExerciseService exerciseService, LvlService levelService, UserService userService) {
         this.goalService = goalService;
         this.categoryService = categoryService;
         this.exerciseService = exerciseService;
         this.levelService = levelService;
+        this.userService = userService;
     }
 
     @GetMapping("/add")
@@ -67,6 +69,16 @@ public class GoalController {
         }
 
         return "redirect:/";
+    }
+
+    @GetMapping("/finalize")
+    public String finalizeGoals(@AuthenticationPrincipal CurrentUser customUser, Model model){
+        if (customUser != null) {
+            customUser.getUser().setGoals(goalService.findAllByUser(customUser.getUser()));
+            customUser.getUser().setLvl(userService.getUserLvl(customUser.getUser()));
+            model.addAttribute("user", customUser.getUser());
+        }
+        return "finalizeGoals";
     }
 
 

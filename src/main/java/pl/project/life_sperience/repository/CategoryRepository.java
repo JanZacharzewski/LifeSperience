@@ -21,6 +21,8 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Query("select c from Category c where c.id=?1 and c.parent_id > 0")
             Category findById(int id);
 
+
+
     Category findByName(String name);
 
 }

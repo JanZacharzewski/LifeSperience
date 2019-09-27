@@ -43,9 +43,9 @@
                            placeholder="Password">
 
                 </div>
-                <div class="forgot">
-                    <a href="reset.html">Zapomniałeś hasła?</a>
-                </div>
+<%--                <div class="forgot">--%>
+<%--                    <a href="/forgot-password">Zapomniałeś hasła?</a>--%>
+<%--                </div>--%>
                 <div><input type="submit" class="btn btn-primary" value="Login"></div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>

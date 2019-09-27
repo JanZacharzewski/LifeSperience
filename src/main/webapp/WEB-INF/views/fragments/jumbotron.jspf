@@ -25,7 +25,7 @@
 
                     <div>
                         <div>
-                            <a class="btn btn-lg btn-warning mt-5" href="/registration" role="button">Rejestracja</a>
+                            <a class="btn btn-lg btn-warning mt-3" href="/registration" role="button">Rejestracja</a>
                         </div>
                     </div>
                 </div>

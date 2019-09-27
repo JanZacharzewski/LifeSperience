@@ -49,6 +49,12 @@ public class GoalServiceImpl implements GoalService {
             //todo exception
         }
     }
+
+    @Override
+    public List<Goal> getFinalizeGoal() {
+        return goalRepository.getFinalizeGoal();
+    }
+
     @Override
     public List<Goal> findAllByUser(User user){
         return goalRepository.findAllByUser(user);
