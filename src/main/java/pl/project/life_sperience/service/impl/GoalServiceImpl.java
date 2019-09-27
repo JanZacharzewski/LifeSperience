@@ -22,6 +22,8 @@ public class GoalServiceImpl implements GoalService {
 
     @Override
     public Goal saveGoal(Goal goal) {
+        goal.setXp_to_get(goal.getExercises().stream()
+                .mapToLong(item->item.getEXP_to_gain()).sum());
         return goalRepository.save(goal);
     }
 

@@ -9,6 +9,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="<c:url value="/resources/css/loginForm.css"/>" rel="stylesheet">
+    <title>Title</title>
     <!------ Include the above in your HEAD tag ---------->
 
 </head>
@@ -18,7 +19,7 @@
     <div class="login-form">
         <div class="main-div">
             <div class="panel">
-                <h2>User Login</h2>
+                <h2>Logowanie</h2>
                 <p>Wpisz swoją nazwę użytkownika i hasło</p>
             </div>
 

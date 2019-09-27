@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -28,7 +29,7 @@ public class Goal {
     @ManyToOne
     private User user;
     private long xp_to_get;
-    @OneToMany
-    private Set<Exercise> exercises;
+    @ManyToMany
+    private List<Exercise> exercises;
     private boolean close = false;
 }

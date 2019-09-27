@@ -39,7 +39,7 @@
     </div>
     <div>
         <div class="card-body">
-            <a href="<c:url value="/admin/category/add"/>" class="btn btn-primary">Add new category!</a>
+            <a href="<c:url value="/admin/category/add"/>" class="btn btn-primary">Dodaj nową kategorię</a>
         </div>
     </div>
 </div>

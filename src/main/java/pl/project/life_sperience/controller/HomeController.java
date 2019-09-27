@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.project.life_sperience.service.CurrentUser;
 import pl.project.life_sperience.service.GoalService;
-import pl.project.life_sperience.service.LvlService;
 import pl.project.life_sperience.service.UserService;
 
 
@@ -23,12 +22,12 @@ public class HomeController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String home(@AuthenticationPrincipal CurrentUser customUser,Model model) {
-        if(customUser!=null){
+    @GetMapping(value = "/", produces = "text/html; charset=utf-8")
+    public String home(@AuthenticationPrincipal CurrentUser customUser, Model model) {
+        if (customUser != null) {
             customUser.getUser().setGoals(goalService.findAllByUser(customUser.getUser()));
             customUser.getUser().setLvl(userService.getUserLvl(customUser.getUser()));
-            model.addAttribute("user",customUser.getUser());
+            model.addAttribute("user", customUser.getUser());
         }
         return "home";
     }

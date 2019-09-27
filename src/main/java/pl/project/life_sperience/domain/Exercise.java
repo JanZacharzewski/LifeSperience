@@ -1,3 +1,4 @@
+
 package pl.project.life_sperience.domain;
 
 import lombok.AllArgsConstructor;
@@ -14,11 +15,16 @@ import javax.persistence.*;
 public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private long EXP_to_gain;
     @ManyToOne
     private Difficulty difficulty;
     @ManyToOne
     private Category category;
+    private String name_exp;
+
+    public String getName_exp() {
+        return name + "(" + String.valueOf(EXP_to_gain)+" XP)";
+    }
 }

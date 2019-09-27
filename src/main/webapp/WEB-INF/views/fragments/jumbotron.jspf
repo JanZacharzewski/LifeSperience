@@ -1,0 +1,35 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: juanzachariasz
+  Date: 26.09.2019
+  Time: 16:40
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div class="jumbotron mt-5 mx-auto mr-5 ml-5" style="text-align: center; color: #F8D00C; background-color: #05030C">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-3" style="text-align: center">Witaj, wędrowcze!</h1>
+            <p class="lead" style="text-align: center">LifeSperience to aplikacja, która pozwoli Ci zdobyć&nbsp; życiowe
+                doświadczenie, motywując Cię do
+                tym do pracy!</p>
+            <hr class="my-4" style="text-align: center">
+            <p style="text-align: center;">Aby wejść do gry kliknij tutaj!</p>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <div>
+                            <a class="btn btn-lg btn-warning" href="/login" role="button">Login</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <a class="btn btn-lg btn-warning mt-5" href="/registration" role="button">Rejestracja</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

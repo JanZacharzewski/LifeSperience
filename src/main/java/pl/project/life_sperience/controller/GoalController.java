@@ -10,7 +10,9 @@ import pl.project.life_sperience.domain.*;
 import pl.project.life_sperience.service.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user/goal")
@@ -68,6 +70,10 @@ public class GoalController {
     }
 
 
+    @ModelAttribute("exercises")
+    public List<Exercise> exercises() {
+        return exerciseService.findAllExercises();
+    }
     @ModelAttribute("categories")
     public List<Category> categories() {
         return categoryService.findAllCategories();

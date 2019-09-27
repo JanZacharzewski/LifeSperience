@@ -29,17 +29,17 @@
                 <div class="col align-middle" style="text-align: center">Name</div>
             </div>
 
-            <c:forEach items="${categories}" var="category" varStatus="id">
+            <c:forEach items="${subCategories}" var="subCategory" varStatus="id">
                 <div class="row mx-auto">
                     <div class="col align-middle" style="text-align: center">${id.count}</div>
-                    <div class="col align-middle" style="text-align: center">${category.name}</div>
+                    <div class="col align-middle" style="text-align: center">${subCategory.name}</div>
                 </div>
             </c:forEach>
         </div>
     </div>
     <div>
         <div class="card-body">
-            <a href="admin/subCategory/add" class="btn btn-primary">Add new category!</a>
+            <a href="/admin/subCategory/add" class="btn btn-primary">Dodaj nową podkategorie</a>
         </div>
     </div>
 </div>

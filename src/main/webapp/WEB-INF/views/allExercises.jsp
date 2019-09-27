@@ -45,7 +45,7 @@
     </div>
     <div>
         <div class="card-body">
-            <a href="<c:url value="/admin/subCategory/add"/>" class="btn btn-primary">Add new subcategory!</a>
+            <a href="<c:url value="/admin/subCategory/add"/>" class="btn btn-primary">Dodaj nowe zadanie</a>
         </div>
     </div>
 </div>

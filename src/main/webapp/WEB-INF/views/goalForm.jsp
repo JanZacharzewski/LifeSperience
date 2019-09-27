@@ -15,39 +15,74 @@
 <body>
 <%@include file="fragments/header.jspf" %>
 <form:form modelAttribute="goal" method="post">
-    <div>
-        <label> Nazwa celu:
-            <form:input path="name"/>
-        </label>
+    <div class="container" style="text-align: center; color: #F8D00C">
+        <div class="row">
+            <div class="col">
+
+
+                <div class="container mx-auto">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group" style="width: 50%">
+                                <label for="exampleFormControlInput1">Nazwa celu</label>
+                                <form:input path="name" type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Nazwa celu"/>
+                            </div>
+
+                            <div class="form-group" style="width: 50%">
+                                <label for="exampleFormControlInput1">Ustaw deadline</label>
+                                <form:input path="deadline" type="date" class="form-control"
+                                            id="exampleFormControlInput1"
+                                            placeholder="Data zakończenia celu"/>
+                            </div>
+
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4 mx-auto col-12">
+                                    <div class="b-select-wrap">
+                                        Wybierz kategorie swojego celu:
+                                        <form:select cssClass="form-control b-select" path="category.id"
+                                                     items="${categories}"
+                                                     itemLabel="name"
+                                                     itemValue="id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4 mx-auto col-12">
+                                    <div class="b-select-wrap">
+                                        Wybierz podkategorie swojego celu:
+                                        <form:select cssClass="form-control b-select" path="category.parent_id"
+                                                     items="${subcategories}"
+                                                     itemLabel="name" itemValue="id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4 mx-auto col-12">
+                                    <div class="b-select-wrap">
+                                        Wybierz zadania swojego celu:
+                                        <form:select path="exercises">
+                                            <form:options cssClass="form-control b-select" items="${exercises}"
+                                                          itemValue="id"
+                                                          itemLabel="name_exp"/>
+                                        </form:select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div><input type="submit" class="nav-link btn btn-warning" value="Dodaj cel"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div>
-        <label> Ustaw deadline:
-            <form:input type="date" path="deadline"/>
-        </label>
-    </div>
-
-    <div>
-        <label>Wybierz kategorie swojego celu:
-            <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/>
-            <a class="nav-link btn btn-warning" href="#" style="width: fit-content;">Wybierz podkategorie</a>
-        </label>
-    </div>
-
-    <div>
-        <label> Wybierz podkategorie swojego celu:
-            <form:select path="category.parent_id" items="${subcategories}" itemLabel="name" itemValue="id"/>
-            <a class="nav-link btn btn-warning" href="#" style="width: fit-content">Wybierz zadania</a>
-        </label>
-    </div>
-    <div>
-        <label> Wybierz zadania dla swojego celu:
-            <form:select path="category">
-                <form:options items="${goal.exercises}" itemValue="id" itemLabel="name"/>
-            </form:select>
-        </label>
-    </div>
-    <input type="submit" value="Dodaj cel"/>
 </form:form>
 </body>
 </html>
